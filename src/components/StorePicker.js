@@ -1,5 +1,5 @@
-import React from 'react';
-import { getFunName } from '../helpers';
+import React from "react";
+import { getFunName } from "../helpers";
 
 class StorePicker extends React.Component {
   constructor() {
@@ -12,7 +12,9 @@ class StorePicker extends React.Component {
   goToStore(event) {
     event.preventDefault(); // stop form from submitting
 
-    console.log(this.sotreInput.value);
+    const storeId = this.sotreInput.value;
+
+    this.context.router.transitionTo(`/store/${storeId}`);
   }
   render() {
     return (
@@ -34,3 +36,7 @@ class StorePicker extends React.Component {
 }
 
 export default StorePicker;
+
+StorePicker.contextTypes = {
+  router: React.PropTypes.object
+};
