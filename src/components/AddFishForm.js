@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 class AddFishForm extends React.Component {
   createFish(event) {
@@ -11,11 +11,15 @@ class AddFishForm extends React.Component {
       desc: this.desc.value,
       image: this.image.value
     };
+
+    this.props.addFish(fish);
+    this.fishForm.reset();
   }
 
   render() {
     return (
       <form
+        ref={input => (this.fishForm = input)}
         className="fish-edit"
         onSubmit={(this.createFish = this.createFish.bind(this))}
       >
